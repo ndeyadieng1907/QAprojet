@@ -1,3 +1,5 @@
+#test qwsdfghjk,nuytvyrtu,fiy;gouhnij,uyndn byr
+
 from flask import Flask, render_template, request, jsonify
 from my_QA_app import repondre
 app = Flask(__name__)
