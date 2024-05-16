@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haystack QA System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #060606; /* Blue sky color */
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #cccccc;
+            border-radius: 5px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .answer-container {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .relevant-documents {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .waiting-progress {
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Poser votre question concernant les publications de l'ANSD</h1>
+        <h2> Par exemple : </h2>
+        <p> Quel est le Pib du Sénégal ? </p>
+        <p> Quel est le taux de chômage </p>
+        <p> Quel est le taux d'inflation ? </p>
+        <form  action="/submit" method="post">
+            <label for="question">Question:</label><br>
+            <input type="text" id="query" name="query" required><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div class = "answer-container">
+            {% if answer %}
+                <h2>Meilleur contenu :</h2>
+                <p> {{ answer }}</p>
+            {% endif %}
+        </div>
+        <div class="relevant-documents" id="relevant-documents">
+            {% if result %}
+                <h2>RESULTAT DE LA RECHERCHE SELON LE SCORE</h2>
+                <pre> {{ result }} </pre>
+            {% endif %}
+        </div>
+    </div>
+
+
+</div>
+
+   
+    
+</body>
+</html>
